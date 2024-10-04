@@ -433,7 +433,7 @@ func SubmitApplication(w http.ResponseWriter, id string) error {
 		return err
 	}
 
-	apiDesc := "https://github.com/Hardmun/rms/blob/17d2ab1ac1c4277460bcc12fa3566de5ca374c26/install/api_ru.md"
+	apiDesc := "https://github.com/Hardmun/rms/blob/main/install/api_ru.md"
 	intro := "We are pleased to inform you that your request for access to our REST API " +
 		"has been successfully granted."
 	manuals := fmt.Sprintf("REST API documentation:\n\n%s\n\n%s\n%s", apiDesc,
