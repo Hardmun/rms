@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запрос авторизации (auth request)</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .form-group label {
+            width: 280px;
+            min-width: 150px;
+            text-align: left;
+            padding-right: 10px;
+            font-weight: normal;
+            font-size: 20px;
+            white-space: nowrap;
+        }
+
+        .form-group#company-group label {
+            font-weight: bold;
+        }
+
+        #company {
+            width: 400px;
+            flex: none;
+        }
+
+        .form-group input {
+            flex: 1;
+            font-size: 20px;
+        }
+
+        input[type="submit"] {
+            align-self: center;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<form action="%prefix/request" id="requestForm" method="post">
+    <div class="form-group" id="company-group">
+        <label for="company">Организация (Company):</label>
+        <input id="company" name="company" required type="text">
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input id="email" name="email" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    </div>
+    <div class="form-group">
+        <label for="applicant">Ф.И.О. заявителя (applicant):</label>
+        <input id="applicant" name="applicant" required type="text">
+    </div>
+    <input type="submit" value="Подать заявку (submit)">
+    <input type="hidden" name="source" value="button">
+</form>
+<script>
+    document.getElementById('company').addEventListener('invalid', function (event) {
+        event.target.setCustomValidity('Please enter your Company.');
+    });
+
+    document.getElementById('company').addEventListener('input', function (event) {
+        event.target.setCustomValidity('');
+    });
+
+    document.getElementById('email').addEventListener('invalid', function (event) {
+        event.target.setCustomValidity('Please enter your e-mail.');
+    });
+
+    document.getElementById('email').addEventListener('input', function (event) {
+        event.target.setCustomValidity('');
+    });
+
+    document.getElementById('applicant').addEventListener('invalid', function (event) {
+        event.target.setCustomValidity('Please enter your name.');
+    });
+
+    document.getElementById('applicant').addEventListener('input', function (event) {
+        event.target.setCustomValidity('');
+    });
+</script>
+</body>
+</html>

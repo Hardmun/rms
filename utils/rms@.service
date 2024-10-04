@@ -1,0 +1,15 @@
+[Unit]
+Description=rms
+After=network.target
+
+[Service]
+ExecStart=/usr/local/rms/rms
+Restart=on-failure
+RestartSec=5
+User=root
+Group=root
+WorkingDirectory=/usr/local/rms
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
