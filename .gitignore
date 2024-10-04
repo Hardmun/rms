@@ -23,7 +23,6 @@ logs/
 # Go workspace file
 go.work
 go.work.sum
-settings.json
 go.mod
 go.sum
 
