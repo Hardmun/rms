@@ -21,6 +21,7 @@ logs/
 !logs/logs.go
 
 # Go workspace file
+settings.json
 go.work
 go.work.sum
 go.mod
